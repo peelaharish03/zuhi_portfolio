@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+  --bg: #070912;
+  --bg-2: #05060c;
+  --panel: rgba(255, 255, 255, 0.06);
+  --panel-2: rgba(255, 255, 255, 0.09);
+  --border: rgba(255, 255, 255, 0.10);
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.68);
+  --muted-2: rgba(255, 255, 255, 0.52);
+
+  --accent: #8b5cf6;
+  --accent-2: #22c55e;
+  --accent-3: #06b6d4;
+
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+  --radius: 18px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background:
+    radial-gradient(900px 650px at 12% 10%, rgba(139, 92, 246, 0.34), transparent 62%),
+    radial-gradient(850px 620px at 88% 12%, rgba(6, 182, 212, 0.22), transparent 60%),
+    radial-gradient(1000px 650px at 50% 110%, rgba(34, 197, 94, 0.16), transparent 62%),
+    radial-gradient(900px 500px at 55% 40%, rgba(59, 130, 246, 0.10), transparent 65%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+}
+
+@media print {
+  body {
+    background: #fff;
+    color: #111;
+  }
+}

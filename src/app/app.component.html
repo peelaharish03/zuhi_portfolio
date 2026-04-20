@@ -1,0 +1,151 @@
+<div class="app">
+  <div class="bg" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <div class="brand__mark" aria-hidden="true"></div>
+        <div class="brand__text">
+          <div class="brand__name">{{ profile.name }}</div>
+          <div class="brand__role">Quality Assurance | KYC/AML | Loan Underwriting</div>
+        </div>
+      </div>
+
+      <div class="topbar__actions">
+        <a class="btn btn--ghost" [href]="'mailto:' + profile.email">Email</a>
+        <a class="btn btn--primary" [href]="'tel:' + profile.phone.replaceAll(' ', '')">Call</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero__card">
+        <div class="hero__meta">
+          <div class="chips">
+            <span class="chip">{{ profile.location }}</span>
+            <span class="chip">5 Years Experience</span>
+            <span class="chip">Financial & Banking Sector</span>
+          </div>
+
+          <h1 class="hero__title">{{ profile.name }}</h1>
+          <p class="hero__subtitle">Quality Assurance Administrator | KYC/AML Compliance</p>
+
+          <div class="contact">
+            <a class="contact__item" [href]="'mailto:' + profile.email">
+              <span class="contact__label">E-mail</span>
+              <span class="contact__value">{{ profile.email }}</span>
+            </a>
+            <a class="contact__item" [href]="'tel:' + profile.phone.replaceAll(' ', '')">
+              <span class="contact__label">Mob</span>
+              <span class="contact__value">{{ profile.phone }}</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero__highlight" aria-label="Professional Summary">
+          <div class="section-title">Professional Summary</div>
+          <p class="summary">{{ summary }}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <section class="panel">
+        <div class="panel__header">
+          <h2 class="panel__title">Work Experience</h2>
+          <div class="panel__hint">Impact, compliance, quality, and operations</div>
+        </div>
+
+        <div class="timeline">
+          @for (job of experience; track job.company + job.period + job.title) {
+            <article class="timeline__item">
+              <div class="timeline__dot" aria-hidden="true"></div>
+              <div class="timeline__card">
+                <div class="job__top">
+                  <div class="job__company">{{ job.company }}</div>
+                  <div class="job__period">{{ job.period }}</div>
+                </div>
+                <div class="job__title">{{ job.title }}</div>
+                <div class="job__lob">Line of Business: {{ job.lob }}</div>
+
+                <ul class="job__bullets">
+                  @for (b of job.bullets; track b) {
+                    <li>{{ b }}</li>
+                  }
+                </ul>
+              </div>
+            </article>
+          }
+        </div>
+      </section>
+
+      <aside class="sidebar">
+        <section class="panel">
+          <div class="panel__header">
+            <h2 class="panel__title">Education</h2>
+            <div class="panel__hint">Academic performance</div>
+          </div>
+
+          <div class="list">
+            @for (edu of education; track edu.program + edu.year) {
+              <div class="list__item">
+                <div class="list__title">{{ edu.program }}</div>
+                <div class="list__meta">{{ edu.institute }}</div>
+                <div class="list__meta">{{ edu.year }} | {{ edu.score }}</div>
+              </div>
+            }
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel__header">
+            <h2 class="panel__title">Skills</h2>
+            <div class="panel__hint">Strengths that support accuracy & compliance</div>
+          </div>
+          <div class="chips chips--wrap">
+            @for (s of skills; track s) {
+              <span class="chip chip--skill">{{ s }}</span>
+            }
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel__header">
+            <h2 class="panel__title">Achievements</h2>
+            <div class="panel__hint">Awards & recognition</div>
+          </div>
+          <ul class="bullets">
+            @for (a of achievements; track a) {
+              <li>{{ a }}</li>
+            }
+          </ul>
+        </section>
+
+        <section class="panel">
+          <div class="panel__header">
+            <h2 class="panel__title">Hobbies</h2>
+            <div class="panel__hint">Personal interests</div>
+          </div>
+          <div class="chips chips--wrap">
+            @for (h of hobbies; track h) {
+              <span class="chip">{{ h }}</span>
+            }
+          </div>
+        </section>
+      </aside>
+    </section>
+
+    <footer class="footer">
+      <div class="footer__card">
+        <div class="section-title">Declaration</div>
+        <p class="footer__text">{{ declaration }}</p>
+        <div class="footer__meta">
+          <div>Date: <span class="muted">{{ currentYear }}</span></div>
+          <div>Place: <span class="muted">{{ profile.location }}</span></div>
+          <div class="footer__sign">{{ profile.name }}</div>
+        </div>
+      </div>
+    </footer>
+  </main>
+</div>
