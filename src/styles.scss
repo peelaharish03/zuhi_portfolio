@@ -20,18 +20,24 @@
 
 html,
 body {
-  height: 100%;
+  min-height: 100%;
 }
 
-body {
-  margin: 0;
-  color: var(--text);
+html {
   background:
     radial-gradient(900px 650px at 12% 10%, rgba(139, 92, 246, 0.34), transparent 62%),
     radial-gradient(850px 620px at 88% 12%, rgba(6, 182, 212, 0.22), transparent 60%),
     radial-gradient(1000px 650px at 50% 110%, rgba(34, 197, 94, 0.16), transparent 62%),
     radial-gradient(900px 500px at 55% 40%, rgba(59, 130, 246, 0.10), transparent 65%),
     linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: transparent;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
